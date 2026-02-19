@@ -5,6 +5,12 @@ class EnterpriseManager:
     def __init__(self):
         pass
 
+    def register_project(company_cif: str, project_acronym: str, project_description: str,
+                         department: str, date: str, budget: float):
+        objProject = Project(company_cif, project_acronym, project_description,
+                             department, date, budget)
+        return objProject.project_id
+
     @staticmethod
     def validate_cif(cif: str):
         """RETURNs TRUE IF THE IBAN RECEIVED IS VALID SPANISH IBAN,
