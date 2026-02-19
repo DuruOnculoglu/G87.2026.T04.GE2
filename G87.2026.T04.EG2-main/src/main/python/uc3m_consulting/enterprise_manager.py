@@ -5,9 +5,11 @@ class EnterpriseManager:
     def __init__(self):
         pass
 
-    def register_project(company_cif: str, project_acronym: str, project_description: str,
+    def register_project(self, company_cif: str, project_acronym: str, project_description: str,
                          department: str, date: str, budget: float):
-        objProject = Project(company_cif, project_acronym, project_description,
+        if budget < 50000:
+            raise EnterpriseManagementException("Budget too low")
+        objProject = enterprise_project(company_cif, project_acronym, project_description,
                              department, date, budget)
         return objProject.project_id
 
