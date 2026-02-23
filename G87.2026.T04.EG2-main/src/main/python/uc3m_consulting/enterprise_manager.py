@@ -11,17 +11,17 @@ class EnterpriseManager:
     def __init__(self):
         pass
 
-    def register_project(self, company_cif: str, project_acronym: str, project_description: str,
+    def register_project(self, company_cif: str, project_achronym: str, project_description: str,
                          department: str, date: str, budget: float):
        #CIF Check
         if not self.validate_cif(company_cif):
             raise EnterpriseManagementException("Invalid Cif")
 
         #Project_acronym Check
-        if not (5 <= len(project_acronym) <= 10):
+        if not (5 <= len(project_achronym) <= 10):
             raise EnterpriseManagementException("Invalid Project Acronym Length")
         # isalnum() checks for a-z, A-Z, 0-9
-        if not project_acronym.isalnum():
+        if not project_achronym.isalnum():
             raise EnterpriseManagementException("Invalid Project Acronym Characters")
 
        #project_description Check
@@ -38,7 +38,7 @@ class EnterpriseManager:
             year = date_valid.year
 
             if date_valid < datetime.today().date():
-                 raise ValueError
+                raise ValueError
             if not (2025 <= year <= 2027):
                 raise ValueError
         except ValueError: raise EnterpriseManagementException("Invalid Date")
@@ -49,11 +49,11 @@ class EnterpriseManager:
                 raise ValueError
             if not (budget * 100).is_integer():
                 raise ValueError
-            if not (50000.00 <= budget <= 10000000.00):
+            if not (50000.00 <= budget <= 1000000.00):
                 raise ValueError
         except ValueError: raise EnterpriseManagementException("Invalid Budget")
 
-        objProject = EnterpriseProject(company_cif, project_acronym, project_description,
+        objProject = EnterpriseProject(company_cif, project_achronym, project_description,
                              department, date, budget)
 
         with open("corporate_operations.json", "w") as file:

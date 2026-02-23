@@ -7,14 +7,14 @@ class EnterpriseProject:
     """Class representing a transfer request"""
     def __init__(self,
                  company_cif: str,
-                 project_acronym: str,
+                 project_achronym: str,
                  project_description: str,
                  department: str,
                  starting_date: str,
                  project_budget: float):
         self.__company_cif = company_cif
         self.__project_description = project_description
-        self.__project_achronym = project_acronym
+        self.__project_achronym = project_achronym
         self.__department = department
         self.__starting_date = starting_date
         self.__project_budget = project_budget
