@@ -62,23 +62,36 @@ class MyTestCase(unittest.TestCase):
         self.assertRaises(EnterpriseManagementException, manager.register_project,"B123456789", "PR001", "valid texts",
                                            "Legal", "31/12/2026", 75000.00)
 
-    # ECNV4? ==> CHECK THIS IN THE EXCEL SHEET - THERE IS A MISTAKE WITH THE NUMBERING - FIX IT
+    # ECNV5
     def test_tc8(self):
         manager = EnterpriseManager()
         self.assertRaises(EnterpriseManagementException,manager.register_project,"712345678", "PR001", "valid texts",
                                        "Legal", "31/12/2026", 50000.00)
 
-    # ECNV6, BLNV3
+    #ECNV6
     def test_tc9(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException,manager.register_project,"B12345678",
+                          123456, "valid texts", "HR", "31/12/2026", 50000.00)
+
+    # ECNV7, BLNV3
+    def test_tc10(self):
         manager = EnterpriseManager()
         self.assertRaises(EnterpriseManagementException,manager.register_project,"B12345678", "PR07", "car automatic development",
                                        "HR", "31/12/2026", 50000.00)
 
-    # ECNV6, BLNV4
-    def test_tc10(self):
+    # ECNV7, BLNV4
+    def test_tc11(self):
         manager = EnterpriseManager()
         self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678", "PRCF538FG07", "car automatic development",
                                        "HR", "31/12/2026", 50000.00)
+
+    #ECNV8
+    def test_tc12(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
+                          "PR_F538FG07", "car automatic development",
+                                       "Logistics", "1/1/2027", 50000.00)
 
 
 if __name__ == '__main__':
