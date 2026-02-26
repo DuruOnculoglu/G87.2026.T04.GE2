@@ -80,18 +80,49 @@ class MyTestCase(unittest.TestCase):
         self.assertRaises(EnterpriseManagementException,manager.register_project,"B12345678", "PR07", "car automatic development",
                                        "HR", "31/12/2026", 50000.00)
 
-    # ECNV7, BLNV4
+    # ECNV8, BLNV4
     def test_tc11(self):
         manager = EnterpriseManager()
         self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678", "PRCF538FG07", "car automatic development",
                                        "HR", "31/12/2026", 50000.00)
 
-    #ECNV8
+    #ECNV9
     def test_tc12(self):
         manager = EnterpriseManager()
         self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
                           "PR_F538FG07", "car automatic development",
                                        "Logistics", "1/1/2027", 50000.00)
+
+    #ECNV10
+    def test_tc13(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
+                          "PR001", 12345678976, "Logistics", "1/1/2027", 50000.00)
+
+    #ECNV11, BLNV5
+    def test_tc14(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
+                          "PR001", "not valid", "HR", "31/12/2026", 50000.00)
+
+    #ECNV12, BLNV6
+    def test_tc15(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
+                          "PR001", "Real-time neural signal systems", "HR", "31/12/2026", 50000.00)
+
+    #ECNV13
+    def test_tc16(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
+                          "PR001", "valid texts", 13579 , "31/12/2026", 50000.00)
+
+    #ECNV14
+    def test_tc17(self):
+        manager = EnterpriseManager()
+        self.assertRaises(EnterpriseManagementException, manager.register_project,"B12345678",
+                          "PR001", "valid texts", "Communications" , "1/1/2027", 50000.00)
+
 
 
 if __name__ == '__main__':
